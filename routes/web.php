@@ -11,6 +11,6 @@ Route::get('/', function () {
 });
 
 Route::resource('authors', AuthorController::class);
-Route::resource('genre', GenreController::class);
-Route::resource('employee', EmployeeController::class);
+Route::resource('genres', GenreController::class);
+Route::resource('employees', EmployeeController::class);
 Route::resource('books', BookController::class);

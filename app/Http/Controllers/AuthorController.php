@@ -1,17 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Author;
 
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
-    /**
+        /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $authors = Author::all();
+        return view('authors.index', compact('authors'));
     }
 
     /**
@@ -19,7 +21,8 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        $authors = Author::all();
+        return view('authors.create', compact('authors'));
     }
 
     /**
@@ -27,7 +30,21 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required|min:3|max:255',
+            'cpf' => 'required|numeric|digits:11',
+            'data_nasc' => 'date|required',
+            'pais' => 'required|min:2|max:255',
+            'estado' => 'required|min:2|max:255',
+        ],[
+            'nome.required' => 'O campo nome é obrigatório',
+            'cpf.required' => 'CPF inválido',
+            'data_nasc.required' => 'Data inválida',
+            'pais.required' => 'O campo pais é obrigatório',
+            'estado.required' => 'O campo estado é obrigatório',
+        ]);
+        Author::create($request->all()); // atribuição em massa
+        return redirect()->route('authors.index');
     }
 
     /**
@@ -43,7 +60,8 @@ class AuthorController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $author = Author::findOrFail($id);
+        return view('authors.edit', compact('author'));
     }
 
     /**
@@ -51,7 +69,9 @@ class AuthorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $author = Author::findOrFail($id);
+        $author->update($request->all());
+        return redirect()->route('authors.index');
     }
 
     /**
@@ -59,6 +79,9 @@ class AuthorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $authors = Author::findOrFail($id);
+        $authors->delete();
+
+        return redirect()->route('authors.index');
     }
 }
