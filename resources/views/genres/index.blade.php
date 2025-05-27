@@ -1,7 +1,7 @@
 <!-- @extends('layouts.master') -->
 @section('content')
 <div class="container mt-5">
-    <h1 class="text-center">Gênero</h1>
+    <h1 class="text-center">Gêneros</h1>
     <div class="text-right">
         <a href="{{ route('genres.create') }}" class="btn btn-primary">Adicionar Gênero</a>
     </div>

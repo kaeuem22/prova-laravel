@@ -1,7 +1,7 @@
 <!-- @extends('layouts.master') -->
 @section('content')
 <div class="container mt-5">
-    <h1 class="text-center">Autor</h1>
+    <h1 class="text-center">Autores</h1>
     <div class="text-right">
         <a href="{{ route('authors.create') }}" class="btn btn-primary">Adicionar Autor</a>
     </div>

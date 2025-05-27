@@ -1,9 +1,9 @@
 <!-- @extends('layouts.master') -->
 @section('content')
 <div class="container mt-5">
-    <h1 class="text-center">Funcionario</h1>
+    <h1 class="text-center">Funcionários</h1>
     <div class="text-right">
-        <a href="{{ route('employees.create') }}" class="btn btn-primary">Adicionar Funcionario</a>
+        <a href="{{ route('employees.create') }}" class="btn btn-primary">Adicionar Funcionário</a>
     </div>
    
     <div>

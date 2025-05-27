@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <div class="container mt-5">
-    <h1>Editar Funcionario</h1>
+    <h1>Editar Funcionário</h1>
     <form action="{{ route('employees.update', $employee->id) }}" method="POST">
         @csrf
         @method('PUT')

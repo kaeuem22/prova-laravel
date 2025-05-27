@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1>Cadastrar Funcionarios</h1>
+    <h1>Cadastrar Funcionário</h1>
     <form action="{{ route('employees.store') }}" method="POST">
         @csrf
         <div class="row">
